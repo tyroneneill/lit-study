@@ -13,6 +13,9 @@
  */
 
 import {LitElement, html, customElement, property, css} from 'lit-element';
+import {interval} from 'rxjs';
+import {async} from './helpers/async-directive';
+import {LifecycleMixin} from './helpers/lifecycle-directive';
 
 /**
  * An example element.
@@ -21,7 +24,7 @@ import {LitElement, html, customElement, property, css} from 'lit-element';
  * @csspart button - The button
  */
 @customElement('my-element')
-export class MyElement extends LitElement {
+export class MyElement extends LifecycleMixin(LitElement) {
   static styles = css`
     :host {
       display: block;
@@ -31,34 +34,13 @@ export class MyElement extends LitElement {
     }
   `;
 
-  /**
-   * The name to say "Hello" to.
-   */
   @property()
-  name = 'World';
-
-  /**
-   * The number of times the button has been clicked.
-   */
-  @property({type: Number})
-  count = 0;
+  count = interval(1000);
 
   render() {
     return html`
-      <h1>Hello, ${this.name}!</h1>
-      <button @click=${this._onClick} part="button">
-        Click Count: ${this.count}
-      </button>
-      <slot></slot>
+      <h1>Count, ${async(this.count)}!</h1>
     `;
-  }
-
-  private _onClick() {
-    this.count++;
-  }
-
-  foo(): string {
-    return 'foo';
   }
 }
 
