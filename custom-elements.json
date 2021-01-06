@@ -8,13 +8,11 @@
       "attributes": [
         {
           "name": "name",
-          "description": "The name to say \"Hello\" to.",
           "type": "string",
           "default": "\"World\""
         },
         {
           "name": "count",
-          "description": "The number of times the button has been clicked.",
           "type": "number",
           "default": "0"
         }
@@ -23,14 +21,12 @@
         {
           "name": "name",
           "attribute": "name",
-          "description": "The name to say \"Hello\" to.",
           "type": "string",
           "default": "\"World\""
         },
         {
           "name": "count",
           "attribute": "count",
-          "description": "The number of times the button has been clicked.",
           "type": "number",
           "default": "0"
         }
@@ -45,6 +41,23 @@
         {
           "name": "button",
           "description": "The button"
+        }
+      ]
+    },
+    {
+      "name": "price-tile",
+      "path": "./src/price-tile.element.ts",
+      "attributes": [
+        {
+          "name": "price",
+          "type": "Price | null"
+        }
+      ],
+      "properties": [
+        {
+          "name": "price",
+          "attribute": "price",
+          "type": "Price | null"
         }
       ]
     }

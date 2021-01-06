@@ -1,4 +1,4 @@
-# LitElement TypeScript starter 
+# LitElement UI Study 
 
 This project includes a sample component using LitElement with TypeScript.
 
